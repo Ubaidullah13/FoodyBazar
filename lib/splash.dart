@@ -7,10 +7,6 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.red,
-        ),
         home: AnimatedSplashScreen(
             duration: 2000,
             splash: Text('FoodyBazar',
@@ -24,11 +20,3 @@ class Splash extends StatelessWidget {
             backgroundColor: Colors.red));
   }
 }
-// //MyHomePage(
-//               title: 'Home',
-//             )
-
-
-// void main() {
-//   runApp(const MyApp());
-// }

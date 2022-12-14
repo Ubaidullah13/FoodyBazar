@@ -3,17 +3,24 @@ import 'package:foodybazar/splash.dart';
 import 'package:foodybazar/login.dart';
 import 'package:foodybazar/home.dart';
 
+import 'Restaurant.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'FoodyBazar',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
       initialRoute: '/',
       routes: {
         '/': (context) => Splash(),
-        '/first': (context) => Login(),
-        '/second': (context) => Home(),
+        '/login': (context) => Login(),
+        '/home': (context) => Home(),
       },
     );
   }
