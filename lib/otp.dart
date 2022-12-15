@@ -29,86 +29,88 @@ class OTP extends StatelessWidget {
               size: 24,
               color: Colors.black,
             )),
-        body: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: 10),
-              const Text(
-                "We have sent a verification code to ",
-                style: TextStyle(fontSize: 17),
-              ),
-              SizedBox(height: 15),
-              const Text(
-                "+92 123456789",
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 15),
-              OTPTextField(
-                length: 4,
-                width: MediaQuery.of(context).size.width,
-                fieldWidth: 70,
-                style: TextStyle(fontSize: 17),
-                textFieldAlignment: MainAxisAlignment.spaceAround,
-                fieldStyle: FieldStyle.underline,
-                onChanged: (pin) {
-                  print("Changed: " + pin);
-                },
-                onCompleted: (pin) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return personalDetails();
-                      },
-                    ),
-                  );
-                },
-              ),
-              SizedBox(height: 30),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: TextButton(
-                        child: const Text("Resend SMS in 17"),
-                        style: TextButton.styleFrom(
-                            foregroundColor: Colors.black54,
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.all(12.0),
-                            textStyle: const TextStyle(fontSize: 18),
-                            side: BorderSide(width: 2.0, color: Colors.black45),
-                            minimumSize: Size(169, 48)),
-                        onPressed: () {},
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 10),
+                const Text(
+                  "We have sent a verification code to ",
+                  style: TextStyle(fontSize: 17),
+                ),
+                SizedBox(height: 15),
+                const Text(
+                  "+92 123456789",
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 15),
+                OTPTextField(
+                  length: 4,
+                  width: MediaQuery.of(context).size.width,
+                  fieldWidth: 70,
+                  style: TextStyle(fontSize: 17),
+                  textFieldAlignment: MainAxisAlignment.spaceAround,
+                  fieldStyle: FieldStyle.underline,
+                  onChanged: (pin) {
+                    print("Changed: " + pin);
+                  },
+                  onCompleted: (pin) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return personalDetails();
+                        },
                       ),
-                    ),
-                    SizedBox(width: 15),
-                    Expanded(
-                      child: TextButton(
-                        child: const Text("Call me in 17"),
-                        style: TextButton.styleFrom(
-                            foregroundColor: Colors.black54,
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.all(12.0),
-                            textStyle: const TextStyle(fontSize: 18),
-                            side: BorderSide(width: 2.0, color: Colors.black45),
-                            minimumSize: Size(169, 48)),
-                        onPressed: () {},
+                    );
+                  },
+                ),
+                SizedBox(height: 30),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: TextButton(
+                          child: const Text("Resend SMS in 17"),
+                          style: TextButton.styleFrom(
+                              foregroundColor: Colors.black54,
+                              backgroundColor: Colors.white,
+                              padding: const EdgeInsets.all(12.0),
+                              textStyle: const TextStyle(fontSize: 16),
+                              side:
+                                  BorderSide(width: 2.0, color: Colors.black45),
+                              minimumSize: Size(169, 48)),
+                          onPressed: () {},
+                        ),
                       ),
-                    ),
-                  ]),
-              SizedBox(height: 20),
-              const Text(
-                "Try other login methods",
-                style: TextStyle(fontSize: 20, color: Colors.red),
-              )
-            ],
+                      SizedBox(width: 5.0),
+                      Expanded(
+                        child: TextButton(
+                          child: const Text("Call me in 17"),
+                          style: TextButton.styleFrom(
+                              foregroundColor: Colors.black54,
+                              backgroundColor: Colors.white,
+                              padding: const EdgeInsets.all(12.0),
+                              textStyle: const TextStyle(fontSize: 16),
+                              side:
+                                  BorderSide(width: 2.0, color: Colors.black45),
+                              minimumSize: Size(169, 48)),
+                          onPressed: () {},
+                        ),
+                      ),
+                    ]),
+                SizedBox(height: 20),
+                const Text(
+                  "Try other login methods",
+                  style: TextStyle(fontSize: 20, color: Colors.red),
+                )
+              ],
+            ),
           ),
-          height: 250,
-          width: 500,
-          margin: const EdgeInsets.all(8.0),
         ),
       ),
     );

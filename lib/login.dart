@@ -149,21 +149,18 @@ class _LoginState extends State<Login> {
                   const SizedBox(
                     height: 20.0,
                   ),
-                  Row(children: [
-                    Expanded(
-                      child: SignInButton(
-                        Buttons.Google,
-                        onPressed: () {},
-                      ),
+                  Column(children: [
+                    SignInButton(
+                      Buttons.Google,
+                      onPressed: () {},
                     ),
+                    // ignore: prefer_const_constructors
                     const SizedBox(
-                      width: 20.0,
+                      height: 5.0,
                     ),
-                    Expanded(
-                      child: SignInButton(
-                        Buttons.Email,
-                        onPressed: () {},
-                      ),
+                    SignInButton(
+                      Buttons.Email,
+                      onPressed: () {},
                     )
                   ]),
                   const SizedBox(

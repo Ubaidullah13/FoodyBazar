@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodybazar/home.dart';
 
+import 'location.dart';
+
 class personalDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -51,7 +53,7 @@ class personalDetails extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return Home();
+                                return Location();
                               },
                             ),
                           );
