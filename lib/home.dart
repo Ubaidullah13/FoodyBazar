@@ -15,62 +15,62 @@ class Home extends StatelessWidget {
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(15.0),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Row(
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        Icon(Icons.pin_drop, color: Colors.red),
-                        const DefaultTextStyle(
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.bold),
-                            child: Text("khatmandu")),
-                        Expanded(flex: 2, child: SizedBox()),
-                        TextButton(
-                          child: Icon(Icons.circle_rounded),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return Profile();
-                                },
-                              ),
-                            );
-                          },
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20.0,
-                    ),
-                    // Text field
-                    TextField(
-                      decoration: const InputDecoration(
-                          prefixIcon: Icon(Icons.search, color: Colors.red),
-                          border: OutlineInputBorder(),
-                          hintText: 'Restaurant, location or mood...'),
-                    ),
-                    const SizedBox(
-                      height: 10.0,
-                    ),
-                    Row(
-                      children: [
-                        OutlinedButton(
-                            onPressed: () {}, child: const Text("Pure Veg")),
-                        SizedBox(width: 10.0),
-                        OutlinedButton(
-                            onPressed: () {}, child: const Text("Non-Veg")),
-                        SizedBox(width: 10.0),
-                        OutlinedButton(
-                            onPressed: () {}, child: Icon(Icons.filter_list)),
-                      ],
-                    ),
-                    SizedBox(height: 30.0),
-                    ListView(
+              child: Column(
+                children: [
+                  Row(
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      Icon(Icons.pin_drop, color: Colors.red),
+                      const DefaultTextStyle(
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold),
+                          child: Text("khatmandu")),
+                      Expanded(flex: 2, child: SizedBox()),
+                      TextButton(
+                        child: Icon(Icons.circle_rounded),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return Profile();
+                              },
+                            ),
+                          );
+                        },
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  // Text field
+                  TextField(
+                    decoration: const InputDecoration(
+                        prefixIcon: Icon(Icons.search, color: Colors.red),
+                        border: OutlineInputBorder(),
+                        hintText: 'Restaurant, location or mood...'),
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  Row(
+                    children: [
+                      OutlinedButton(
+                          onPressed: () {}, child: const Text("Pure Veg")),
+                      SizedBox(width: 10.0),
+                      OutlinedButton(
+                          onPressed: () {}, child: const Text("Non-Veg")),
+                      SizedBox(width: 10.0),
+                      OutlinedButton(
+                          onPressed: () {}, child: Icon(Icons.filter_list)),
+                    ],
+                  ),
+                  SizedBox(height: 30.0),
+                  Expanded(
+                    child: ListView(
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
                       children: <Widget>[
@@ -79,8 +79,8 @@ class Home extends StatelessWidget {
                         RestaurantCard(),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -123,8 +123,7 @@ class RestaurantCard extends StatelessWidget {
                   ),
                   child: Image.asset(
                     'assets/images/food.jpg',
-                    height: 250,
-                    width: MediaQuery.of(context).size.width,
+                    width: double.infinity,
                     fit: BoxFit.fill,
                   ),
                 ),

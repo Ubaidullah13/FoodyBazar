@@ -17,6 +17,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Container(
+      color: Colors.white,
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -49,14 +50,12 @@ class _LoginState extends State<Login> {
                               color: Colors.black12,
                             )),
                       ),
-                      const Expanded(
-                        child: DefaultTextStyle(
-                            style: TextStyle(
-                                color: Colors.black38,
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w600),
-                            child: Center(child: Text("Login or Signup"))),
-                      ),
+                      DefaultTextStyle(
+                          style: TextStyle(
+                              color: Colors.black38,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w600),
+                          child: Text("Login or Signup")),
                       const Expanded(
                         child: SizedBox(
                             width: 50.0,
@@ -150,17 +149,21 @@ class _LoginState extends State<Login> {
                   const SizedBox(
                     height: 20.0,
                   ),
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    SignInButton(
-                      Buttons.Google,
-                      onPressed: () {},
+                  Row(children: [
+                    Expanded(
+                      child: SignInButton(
+                        Buttons.Google,
+                        onPressed: () {},
+                      ),
                     ),
                     const SizedBox(
                       width: 20.0,
                     ),
-                    SignInButton(
-                      Buttons.Email,
-                      onPressed: () {},
+                    Expanded(
+                      child: SignInButton(
+                        Buttons.Email,
+                        onPressed: () {},
+                      ),
                     )
                   ]),
                   const SizedBox(

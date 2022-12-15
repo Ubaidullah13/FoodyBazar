@@ -6,61 +6,57 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-            appBar: AppBar(
-                title: const Text('', style: TextStyle(color: Colors.black)),
-                backgroundColor: Colors.white,
-                leading: TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Icon(
-                    Icons.arrow_back_ios,
-                    size: 24,
-                    color: Colors.black,
-                  ),
-                )),
-            body: Container(
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+        ),
+        home: Material(
+          child: SafeArea(
+            child: Expanded(
               child: Padding(
-                  padding: const EdgeInsets.all(22.0),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(height: 30),
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        size: 24,
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(
+                        width: double.infinity,
+                        height: 10.0,
+                        child: Card(
+                          color: Color.fromARGB(31, 235, 235, 235),
+                        )),
+                    ListView(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      children: <Widget>[
+                        SizedBox(height: 20),
                         Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              SizedBox(
-                                width: 200,
-                                height: 70,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 0, top: 20, right: 0, bottom: 0),
-                                  child: const Text(
-                                    "Hardik",
-                                    style: TextStyle(
-                                      fontSize: 24,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              new Container(
-                                width: 80,
-                                height: 80,
-                                decoration: new BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: new DecorationImage(
-                                    fit: BoxFit.fill,
-                                    image: new AssetImage(
-                                        'assets/images/food.jpg'),
-                                  ),
-                                ),
+                              DefaultTextStyle(
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 30.0,
+                                      fontWeight: FontWeight.bold),
+                                  child: Text("Hardik")),
+                              // Add image
+                              CircleAvatar(
+                                radius: 40,
+                                backgroundImage:
+                                    AssetImage('assets/images/food.jpg'),
                               ),
                             ]),
-                        SizedBox(height: 30),
+                        SizedBox(height: 20),
                         SizedBox(
                             width: double.infinity,
                             height: 10.0,
@@ -221,7 +217,39 @@ class Profile extends StatelessWidget {
                                 style: TextStyle(fontSize: 18)),
                           ],
                         ),
-                      ])),
-            )));
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ));
   }
 }
+
+
+// Scaffold(
+//             appBar: AppBar(
+//                 title: const Text('', style: TextStyle(color: Colors.black)),
+//                 backgroundColor: Colors.white,
+//                 leading: TextButton(
+//                   onPressed: () {
+//                     Navigator.pop(context);
+//                   },
+//                   child: const Icon(
+//                     Icons.arrow_back_ios,
+//                     size: 24,
+//                     color: Colors.black,
+//                   ),
+//                 )),
+//             body: Container(
+//               child: Padding(
+//                   padding: const EdgeInsets.all(22.0),
+//                   child: Column(
+//                       mainAxisAlignment: MainAxisAlignment.start,
+//                       crossAxisAlignment: CrossAxisAlignment.center,
+//                       children: [
+                        
+//                       ])),
+//             ))

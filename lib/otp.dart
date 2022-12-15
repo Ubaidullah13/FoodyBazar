@@ -71,28 +71,32 @@ class OTP extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    ElevatedButton(
-                      child: const Text("Resend SMS in 17"),
-                      style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.black54,
-                          backgroundColor: Colors.white,
-                          padding: const EdgeInsets.all(12.0),
-                          textStyle: const TextStyle(fontSize: 18),
-                          side: BorderSide(width: 2.0, color: Colors.black45),
-                          minimumSize: Size(169, 48)),
-                      onPressed: () {},
+                    Expanded(
+                      child: TextButton(
+                        child: const Text("Resend SMS in 17"),
+                        style: TextButton.styleFrom(
+                            foregroundColor: Colors.black54,
+                            backgroundColor: Colors.white,
+                            padding: const EdgeInsets.all(12.0),
+                            textStyle: const TextStyle(fontSize: 18),
+                            side: BorderSide(width: 2.0, color: Colors.black45),
+                            minimumSize: Size(169, 48)),
+                        onPressed: () {},
+                      ),
                     ),
                     SizedBox(width: 15),
-                    ElevatedButton(
-                      child: const Text("Call me in 17"),
-                      style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.black54,
-                          backgroundColor: Colors.white,
-                          padding: const EdgeInsets.all(12.0),
-                          textStyle: const TextStyle(fontSize: 18),
-                          side: BorderSide(width: 2.0, color: Colors.black45),
-                          minimumSize: Size(169, 48)),
-                      onPressed: () {},
+                    Expanded(
+                      child: TextButton(
+                        child: const Text("Call me in 17"),
+                        style: TextButton.styleFrom(
+                            foregroundColor: Colors.black54,
+                            backgroundColor: Colors.white,
+                            padding: const EdgeInsets.all(12.0),
+                            textStyle: const TextStyle(fontSize: 18),
+                            side: BorderSide(width: 2.0, color: Colors.black45),
+                            minimumSize: Size(169, 48)),
+                        onPressed: () {},
+                      ),
                     ),
                   ]),
               SizedBox(height: 20),
