@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodybazar/profile.dart';
+import 'package:foodybazar/swiggy.dart';
 
 import 'RestHome.dart';
 import 'Restaurant.dart';
@@ -20,7 +21,7 @@ class _HomeState extends State<Home> {
           ? RestHome()
           : currentIndex == 1
               ? InstaMart()
-              : Profile(),
+              : Swiggy(),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -32,8 +33,8 @@ class _HomeState extends State<Home> {
             label: 'Mart',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'Account',
+            icon: Icon(Icons.food_bank),
+            label: 'Swiggy',
           ),
         ],
         currentIndex: currentIndex,

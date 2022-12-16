@@ -185,23 +185,13 @@ class Restaurant extends StatelessWidget {
               SizedBox(height: 10),
               // Create a card to display menu single menu item with image, text, price, rating and option to add or remove quantity
               MenuCard(
-                image: Image.asset(
-                  'assets/images/burger.jpg',
-                  fit: BoxFit.cover,
-                  height: 100,
-                  width: 100,
-                ),
+                image: 'assets/images/burger.jpg',
                 name: 'Burger',
                 price: 10.0,
                 description: 'Burger with cheese',
               ),
               MenuCard(
-                image: Image.asset(
-                  'assets/images/pizza.jpg',
-                  fit: BoxFit.cover,
-                  height: 100,
-                  width: 100,
-                ),
+                image: 'assets/images/pizza.jpg',
                 name: 'Pizza',
                 price: 15.0,
                 description: 'Pizza with cheese',
@@ -219,7 +209,7 @@ class MenuCard extends StatelessWidget {
   final String name;
   final String description;
   final double price;
-  final Image image;
+  final String image;
 
   // Constructor
   const MenuCard({
@@ -236,7 +226,7 @@ class MenuCard extends StatelessWidget {
       elevation: 1,
       child: TextButton(
         onPressed: () {
-          _AddToCart(context);
+          _AddToCart(context, name, description, price, image);
         },
         child: Padding(
           padding: const EdgeInsets.only(
@@ -284,7 +274,12 @@ class MenuCard extends StatelessWidget {
                     bottomLeft: Radius.circular(10),
                     bottomRight: Radius.circular(10),
                   ),
-                  child: image,
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.cover,
+                    height: 100,
+                    width: 100,
+                  ),
                 ),
               ),
             ],
@@ -295,7 +290,8 @@ class MenuCard extends StatelessWidget {
   }
 }
 
-void _AddToCart(context) {
+void _AddToCart(
+    context, String name, String description, double price, String image) {
   showModalBottomSheet(
       context: context,
       builder: (BuildContext bc) {
@@ -304,15 +300,17 @@ void _AddToCart(context) {
           child: Column(
             children: [
               // Add image
-              Image.asset(
-                'assets/images/burger.jpg',
-                fit: BoxFit.cover,
-                height: 200,
-                width: double.infinity,
+              ClipRRect(
+                child: Image.asset(
+                  image,
+                  fit: BoxFit.cover,
+                  height: 200,
+                  width: double.infinity,
+                ),
               ),
               SizedBox(height: 20),
               Text(
-                "Burger",
+                name,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -321,7 +319,7 @@ void _AddToCart(context) {
               ),
               SizedBox(height: 10),
               Text(
-                "Burger with cheese",
+                description,
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
@@ -329,7 +327,7 @@ void _AddToCart(context) {
               ),
               SizedBox(height: 10),
               Text(
-                "\$ 10.0",
+                "\$ $price",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.normal,
