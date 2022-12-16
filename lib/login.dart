@@ -15,59 +15,62 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Container(
+    return Scaffold(
+        body: Container(
       color: Colors.white,
       child: SingleChildScrollView(
         child: Column(
           children: [
-            Image.asset('assets/images/food.jpg'),
+            Image.asset('assets/images/food.jpg',
+                height: 400, fit: BoxFit.cover),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(
                     height: 20.0,
                   ),
-                  const DefaultTextStyle(
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold),
-                      child: Text("Nepal's #1 Food Delivery App")),
+                  Text(
+                    'Nepal\'s #1 Food Delivery App',
+                    style: TextStyle(
+                      decoration: TextDecoration.none,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                   const SizedBox(
-                    height: 40.0,
+                    height: 30.0,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
                       const Expanded(
-                        child: SizedBox(
-                            width: 50.0,
-                            height: 10.0,
-                            child: Card(
-                              color: Colors.black12,
-                            )),
+                        child: Divider(thickness: 2, color: Colors.black12),
                       ),
-                      DefaultTextStyle(
+                      Expanded(
+                        flex: 2,
+                        child: Text(
+                          'Login or Signup',
                           style: TextStyle(
-                              color: Colors.black38,
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.w600),
-                          child: Text("Login or Signup")),
+                            decoration: TextDecoration.none,
+                            fontSize: 18,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                       const Expanded(
-                        child: SizedBox(
-                            width: 50.0,
-                            height: 10.0,
-                            child: Card(
-                              color: Colors.black12,
-                            )),
+                        child: Divider(thickness: 2, color: Colors.black12),
                       ),
                     ],
                   ),
                   const SizedBox(
-                    height: 20.0,
+                    height: 10.0,
                   ),
                   Material(
                     child: IntlPhoneField(
@@ -87,7 +90,7 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   const SizedBox(
-                    height: 20.0,
+                    height: 10.0,
                   ),
                   // elevated button
                   SizedBox(
@@ -114,35 +117,29 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                   const SizedBox(
-                    height: 30.0,
+                    height: 20.0,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
                       const Expanded(
-                        child: SizedBox(
-                            width: 50.0,
-                            height: 10.0,
-                            child: Card(
-                              color: Colors.black12,
-                            )),
+                        child: Divider(thickness: 2, color: Colors.black12),
                       ),
                       const Expanded(
-                        child: DefaultTextStyle(
-                            style: TextStyle(
-                                color: Colors.black38,
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w600),
-                            child: Center(child: Text("or"))),
+                        child: Text(
+                          'or',
+                          style: TextStyle(
+                            decoration: TextDecoration.none,
+                            fontSize: 18,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                       const Expanded(
-                        child: SizedBox(
-                            width: 50.0,
-                            height: 10.0,
-                            child: Card(
-                              color: Colors.black12,
-                            )),
+                        child: Divider(thickness: 2, color: Colors.black12),
                       ),
                     ],
                   ),
@@ -164,15 +161,18 @@ class _LoginState extends State<Login> {
                     )
                   ]),
                   const SizedBox(
-                    height: 40.0,
+                    height: 20.0,
                   ),
-                  const DefaultTextStyle(
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.normal),
-                      child: Text(
-                          "By continuing, you agree to our Terms of Use and Privacy Policy")),
+                  Text(
+                    'By continuing, you agree to our Terms of Service and Privacy Policy',
+                    style: TextStyle(
+                      decoration: TextDecoration.none,
+                      fontSize: 12,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black54,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ],
               ),
             )

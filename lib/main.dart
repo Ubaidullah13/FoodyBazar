@@ -16,12 +16,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => Splash(),
-        '/login': (context) => Login(),
-        '/home': (context) => Home(),
-      },
+      home: Splash(),
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => Splash(),
+      //   '/login': (context) => Login(),
+      //   '/home': (context) => Home(),
+      // },
     );
   }
 }

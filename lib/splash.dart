@@ -6,8 +6,8 @@ import 'login.dart';
 class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: AnimatedSplashScreen(
+    return Scaffold(
+        body: AnimatedSplashScreen(
             duration: 2000,
             splash: Text('FoodyBazar',
                 style: TextStyle(
