@@ -14,17 +14,23 @@ class OTP extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('OTP Verification',
-              style: TextStyle(color: Colors.black)),
-          backgroundColor: Colors.white,
+        title: const Text('OTP Verification',
+            style: TextStyle(color: Colors.black)),
+        backgroundColor: Colors.white,
 
-          // icon: const Icon(Icons.arrow_back_ios)
+        // icon: const Icon(Icons.arrow_back_ios)
 
-          leading: const Icon(
+        leading: TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
             Icons.arrow_back_ios,
             size: 24,
             color: Colors.black,
-          )),
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Container(

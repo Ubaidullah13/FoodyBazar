@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'CouponCard.dart';
+import 'offersCard.dart';
+import 'checkout.dart';
+
 class Restaurant extends StatelessWidget {
   // Dyanmic data
   final String name;
@@ -21,11 +25,21 @@ class Restaurant extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Card(
-        child: ListTile(
-          leading: Icon(Icons.add_shopping_cart),
-          title: Text('View Card'),
-          trailing: Icon(Icons.arrow_forward_ios),
+      bottomNavigationBar: TextButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CheckOut(),
+            ),
+          );
+        },
+        child: Card(
+          child: ListTile(
+            leading: Icon(Icons.add_shopping_cart),
+            title: Text('View Cart (2)'),
+            trailing: Icon(Icons.arrow_forward_ios),
+          ),
         ),
       ),
       body: Material(
@@ -154,6 +168,40 @@ class Restaurant extends StatelessWidget {
                 thickness: 1,
               ),
               SizedBox(height: 20),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(children: [
+                  OffersCard(
+                    coupon: "15% off upto \$20",
+                    couponText: "Use OTE20 on orders above \$100",
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  OffersCard(
+                    coupon: "FLAT 50",
+                    couponText: "Flat 50% off on all products",
+                  ),
+                ]),
+              ),
+              SizedBox(height: 20),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(children: [
+                  CouponCard(
+                    coupon: "15% off upto \$20",
+                    couponText: "Use OTE20 on orders above \$100",
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  CouponCard(
+                    coupon: "FLAT 50",
+                    couponText: "Flat 50% off on all products",
+                  ),
+                ]),
+              ),
+              SizedBox(height: 20),
               Text(
                 "About the Restaurant",
                 style: TextStyle(
@@ -267,19 +315,28 @@ class MenuCard extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10),
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10),
-                  ),
-                  child: Image.asset(
-                    image,
-                    fit: BoxFit.cover,
-                    height: 100,
-                    width: 100,
-                  ),
+                child: Column(
+                  children: [
+                    ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                        bottomLeft: Radius.circular(10),
+                        bottomRight: Radius.circular(10),
+                      ),
+                      child: Image.asset(
+                        image,
+                        fit: BoxFit.cover,
+                        height: 100,
+                        width: double.infinity,
+                      ),
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          _AddToCart(context, name, description, price, image);
+                        },
+                        child: Text('Add to Cart'))
+                  ],
                 ),
               ),
             ],
@@ -296,129 +353,222 @@ void _AddToCart(
       context: context,
       builder: (BuildContext bc) {
         return Container(
-          height: MediaQuery.of(context).size.height * 0.6,
-          child: Column(
-            children: [
-              // Add image
-              ClipRRect(
-                child: Image.asset(
-                  image,
-                  fit: BoxFit.cover,
-                  height: 200,
-                  width: double.infinity,
-                ),
-              ),
-              SizedBox(height: 20),
-              Text(
-                name,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                description,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                "\$ $price",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                ),
-              ),
-              SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(
-                              Icons.remove,
-                              size: 30,
-                              color: Colors.red,
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              '1',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.red,
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Icon(
-                              Icons.add,
-                              size: 30,
-                              color: Colors.red,
-                            ),
-                          ],
-                        ),
-                      ),
-                      style: TextButton.styleFrom(
-                        // add border
-                        side: BorderSide(
-                          color: Colors.red,
-                          width: 1,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
+          height: MediaQuery.of(context).size.height * 0.8,
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: ListView(shrinkWrap: true, children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Additional Items",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
-                    SizedBox(width: 10),
-                    TextButton(
-                      onPressed: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(
-                              Icons.add_shopping_cart,
-                              size: 30,
-                              color: Colors.white,
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              'Add to cart',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      style: TextButton.styleFrom(
-                        // add border
-                        backgroundColor: Colors.red,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    name,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
                     ),
-                  ],
-                ),
-              )
-            ],
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    description,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "\$ $price",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Divider(
+                    color: Colors.grey,
+                    thickness: 1,
+                  ),
+                  SizedBox(height: 10),
+                  // Check box with text
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Add Cheese",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Checkbox(value: false, onChanged: (value) {}),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Add Sauce",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Checkbox(
+                        value: true,
+                        onChanged: (value) {},
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Add Fries",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Checkbox(
+                        value: false,
+                        onChanged: (value) {},
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Add Drink",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Checkbox(
+                        value: false,
+                        onChanged: (value) {},
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Add Dessert",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Checkbox(
+                        value: false,
+                        onChanged: (value) {},
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.remove,
+                                  size: 30,
+                                  color: Colors.red,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  '1',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.red,
+                                  ),
+                                ),
+                                SizedBox(width: 10),
+                                Icon(
+                                  Icons.add,
+                                  size: 30,
+                                  color: Colors.red,
+                                ),
+                              ],
+                            ),
+                          ),
+                          style: TextButton.styleFrom(
+                            // add border
+                            side: BorderSide(
+                              color: Colors.red,
+                              width: 1,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        TextButton(
+                          onPressed: () {},
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.add_shopping_cart,
+                                  size: 30,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  'Add to cart',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          style: TextButton.styleFrom(
+                            // add border
+                            backgroundColor: Colors.red,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ]),
           ),
         );
       });

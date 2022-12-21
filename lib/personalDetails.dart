@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodybazar/home.dart';
 
-import 'location.dart';
+import 'city.dart';
+import 'liveLocationAccess.dart';
 
 class personalDetails extends StatelessWidget {
   @override
@@ -14,10 +15,15 @@ class personalDetails extends StatelessWidget {
 
             // icon: const Icon(Icons.arrow_back_ios)
 
-            leading: const Icon(
-              Icons.arrow_back_ios,
-              size: 24,
-              color: Colors.black,
+            leading: TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(
+                Icons.arrow_back_ios,
+                size: 24,
+                color: Colors.black,
+              ),
             )),
         body: Container(
             child: Padding(
@@ -30,8 +36,24 @@ class personalDetails extends StatelessWidget {
 
                 TextFormField(
                   decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
+                    border: OutlineInputBorder(),
                     labelText: 'Name',
+                    focusColor: Colors.red,
+                  ),
+                ),
+                SizedBox(height: 20),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Password',
+                    focusColor: Colors.red,
+                  ),
+                ),
+                SizedBox(height: 20),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Confirm Password',
                     focusColor: Colors.red,
                   ),
                 ),
@@ -49,12 +71,12 @@ class personalDetails extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return Home();
+                            return City();
                           },
                         ),
                       );
                     },
-                    child: const Text('Continue'),
+                    child: const Text('Register'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
                       shape: RoundedRectangleBorder(
