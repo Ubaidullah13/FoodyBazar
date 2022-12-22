@@ -199,6 +199,7 @@ class _RestHomeState extends State<RestHome> {
                                     Text(
                                       "Pizza Hut",
                                       textAlign: TextAlign.center,
+                                      style: TextStyle(color: Colors.black),
                                     ),
                                   ],
                                 ),
@@ -222,6 +223,7 @@ class _RestHomeState extends State<RestHome> {
                                     Text(
                                       "Burger King",
                                       textAlign: TextAlign.center,
+                                      style: TextStyle(color: Colors.black),
                                     ),
                                   ],
                                 ),
@@ -245,6 +247,7 @@ class _RestHomeState extends State<RestHome> {
                                     Text(
                                       "Vegetarian",
                                       textAlign: TextAlign.center,
+                                      style: TextStyle(color: Colors.black),
                                     ),
                                   ],
                                 ),
@@ -268,6 +271,7 @@ class _RestHomeState extends State<RestHome> {
                                     Text(
                                       "KFC",
                                       textAlign: TextAlign.center,
+                                      style: TextStyle(color: Colors.black),
                                     ),
                                   ],
                                 ),
@@ -299,6 +303,7 @@ class _RestHomeState extends State<RestHome> {
                                     Text(
                                       "McDonald",
                                       textAlign: TextAlign.center,
+                                      style: TextStyle(color: Colors.black),
                                     ),
                                   ],
                                 ),
@@ -322,6 +327,7 @@ class _RestHomeState extends State<RestHome> {
                                     Text(
                                       "Domino's Pizza",
                                       textAlign: TextAlign.center,
+                                      style: TextStyle(color: Colors.black),
                                     ),
                                   ],
                                 ),
@@ -345,6 +351,7 @@ class _RestHomeState extends State<RestHome> {
                                     Text(
                                       "Chicken Chef",
                                       textAlign: TextAlign.center,
+                                      style: TextStyle(color: Colors.black),
                                     ),
                                   ],
                                 ),
@@ -368,6 +375,7 @@ class _RestHomeState extends State<RestHome> {
                                     Text(
                                       "Natural Food",
                                       textAlign: TextAlign.center,
+                                      style: TextStyle(color: Colors.black),
                                     ),
                                   ],
                                 ),
@@ -425,6 +433,7 @@ class _RestHomeState extends State<RestHome> {
                                         Text(
                                           "McDonald",
                                           textAlign: TextAlign.center,
+                                          style: TextStyle(color: Colors.black),
                                         ),
                                       ],
                                     ),
@@ -447,6 +456,7 @@ class _RestHomeState extends State<RestHome> {
                                         Text(
                                           "Domino's Pizza",
                                           textAlign: TextAlign.center,
+                                          style: TextStyle(color: Colors.black),
                                         ),
                                       ],
                                     ),
