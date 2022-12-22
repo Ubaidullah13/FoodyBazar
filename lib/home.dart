@@ -9,12 +9,18 @@ import 'favourite.dart';
 import 'notification.dart';
 
 class Home extends StatefulWidget {
+  final String city;
+  const Home({Key? key, required this.city}) : super(key: key);
   @override
-  State<Home> createState() => _HomeState();
+  State<Home> createState() => _HomeState(city: city);
 }
 
 class _HomeState extends State<Home> {
   int currentIndex = 0;
+
+  final String city;
+
+  _HomeState({Key? key, required this.city});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +33,9 @@ class _HomeState extends State<Home> {
       body: IndexedStack(
         index: currentIndex,
         children: [
-          RestHome(),
+          RestHome(
+            city: city,
+          ),
           InstaMart(),
           Genie(),
           Favourite(),

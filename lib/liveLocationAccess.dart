@@ -139,7 +139,9 @@ class _LocationState extends State<Location> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return Home();
+                        return Home(
+                          city: 'Bhairahawa',
+                        );
                       },
                     ),
                   );

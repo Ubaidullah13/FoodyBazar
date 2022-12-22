@@ -71,38 +71,17 @@ class OTP extends StatelessWidget {
                 },
               ),
               SizedBox(height: 30),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: TextButton(
-                        child: const Text("Resend SMS in 17"),
-                        style: TextButton.styleFrom(
-                            foregroundColor: Colors.black54,
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.all(12.0),
-                            textStyle: const TextStyle(fontSize: 16),
-                            side: BorderSide(width: 2.0, color: Colors.black45),
-                            minimumSize: Size(169, 48)),
-                        onPressed: () {},
-                      ),
-                    ),
-                    SizedBox(width: 5.0),
-                    Expanded(
-                      child: TextButton(
-                        child: const Text("Call me in 17"),
-                        style: TextButton.styleFrom(
-                            foregroundColor: Colors.black54,
-                            backgroundColor: Colors.white,
-                            padding: const EdgeInsets.all(12.0),
-                            textStyle: const TextStyle(fontSize: 16),
-                            side: BorderSide(width: 2.0, color: Colors.black45),
-                            minimumSize: Size(169, 48)),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ]),
+              TextButton(
+                child: const Text("Resend in 17 sec"),
+                style: TextButton.styleFrom(
+                    foregroundColor: Colors.black54,
+                    backgroundColor: Colors.white,
+                    padding: const EdgeInsets.all(12.0),
+                    textStyle: const TextStyle(fontSize: 16),
+                    side: BorderSide(width: 2.0, color: Colors.black45),
+                    minimumSize: Size(double.infinity, 50)),
+                onPressed: () {},
+              ),
               SizedBox(height: 20),
               const Text(
                 "Try other login methods",
